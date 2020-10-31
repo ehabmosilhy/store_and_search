@@ -1,0 +1,14 @@
+HomePage
+<form>
+    {{form}}
+</form>
+
+
+Upload File
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <button type="submit" class="btn btn-primary">Upload File</button>
+</form>
