@@ -75,6 +75,7 @@ def make_search(keyword):
 
 
 def search(request):
+    print ('hi')
     search_text = request.POST['search_text']
     result = make_search(search_text)
 
