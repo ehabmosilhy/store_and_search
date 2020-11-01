@@ -1,0 +1,17 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Download</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for file in files %}
+    <tr>
+        <td>{{file.title}}</td>
+        <td><a href="{{file.content.url}}" class="btn btn-primary btn-sm">Download File</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+
+</table>

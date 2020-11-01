@@ -11,6 +11,9 @@ urlpatterns = [
                   path('admin/', admin.site.urls),
                   path('files', views.file_list, name='file_list'),
                   path('files/upload', views.upload_file, name='upload_file'),
+                  path('search', views.search, name='search'),
                   path('', views.home, name='home')
 
-              ] + static(settings.FILES_URL, document_root=settings.FILES_ROOT)
+              ]
+urlpatterns += static(settings.FILES_URL, document_root=settings.FILES_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
