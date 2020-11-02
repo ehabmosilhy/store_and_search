@@ -29,7 +29,7 @@ def upload_file(request):
         form = FileForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('file_list')
+            return redirect('home')
     else:
         form = FileForm()
 
@@ -81,4 +81,4 @@ def search(request):
 
     files = File.objects.filter(Q(content__in=result) | Q(title__contains=search_text) )
 
-    return render(request, 'search.html', {'files': files})
+    return render(request, 'search.html', {'files': files, 'keyword':search_text})

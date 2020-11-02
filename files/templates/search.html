@@ -1,17 +1,93 @@
-<table class="table">
-    <thead>
-    <tr>
-        <th>Title</th>
-        <th>Download</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for file in files %}
-    <tr>
-        <td>{{file.title}}</td>
-        <td><a href="{{file.content.url}}" class="btn btn-primary btn-sm">Download File</a></td>
-    </tr>
-    {% endfor %}
-    </tbody>
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <title>Homepage</title>
 
-</table>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+          rel="stylesheet">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" media="all">
+
+    <style>
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+
+
+
+    </style>
+</head>
+
+<body>
+<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+    <div class="wrapper wrapper--w790">
+        <div class="card card-5">
+            <div class="card-heading">
+                <h2 class="title">Search Results</h2>
+            </div>
+
+            <div class="card-body">
+
+                Here's the search results for keyword : <b>{{keyword}}</b>
+                <table class="styled-table" width="100%">
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Download</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for file in files %}
+                    <tr>
+                        <td>{{file.title}}</td>
+                        <td><a href="{{file.content.url}}" class="btn btn--radius-2 btn--blue btn-sm" role="button">Download
+                            File</a></td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
